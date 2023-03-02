@@ -20,8 +20,7 @@ service.interceptors.request.use((config) => {
 
 // 响应拦截
 service.interceptors.response.use((res) => {
-    console.log(res.data);
-    const code: number = res.data.data.code
+    const code: number = res.data.data.code || res.data.code
     if(code !== 200) {
         return Promise.reject(res.data)
     }

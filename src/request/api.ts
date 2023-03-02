@@ -15,3 +15,9 @@ export function login(data: LoginData) {
 }
 
 // 商品列表接口
+export function getGoodsList() {
+    return service({
+        url: "/getGoodsList",
+        method: "get"
+    })
+}
