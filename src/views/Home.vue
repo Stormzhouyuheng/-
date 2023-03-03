@@ -45,7 +45,7 @@ export default defineComponent({
     const router = useRouter()
     // console.log(router.getRoutes());
     const list = router.getRoutes().filter(v => v.meta.isShow)
-    console.log(list);
+    // console.log(list);
 
     return {list}
     

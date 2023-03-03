@@ -20,47 +20,24 @@
                 </template>
             </el-table-column>
         </el-table>
-
-         <!-- <el-dialog v-model="isShow" title="编辑信息">
-            <el-form :model="active">
-            <el-form-item label="姓名" label-width="50px">
-                <el-input v-model="active.nickName" autocomplete="off" />
-            </el-form-item>
-            <el-form-item label="角色" label-width="50px">
-                <el-select multiple v-model="active.role" placeholder="请选择角色">
-                    <el-option
-                        v-for="item in roleList"
-                        :key="item.roleId"
-                        :label="item.roleName"
-                        :value="item.roleId"/>
-                </el-select>
-            </el-form-item>
-            </el-form>
-            <template #footer>
-            <span class="dialog-footer">
-                <el-button @click="updateUser">更改</el-button>
-                <el-button type="primary" @click="dialogFormVisible = false">
-                取消
-                </el-button>
-            </span>
-            </template>
-        </el-dialog> -->
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive, toRefs } from 'vue'
 import { getRoleList } from '../request/api'
-import { InitData } from '../type/role'
+import { InitData, ListInt } from '../type/role'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
     setup () {
         const data = reactive(new InitData())
+        const router = useRouter()
 
         onMounted(() => {
             getRoleList().then(res => {
-                console.log(res);
+                // console.log(res);
                 data.list = res.data
             })
         })
@@ -89,7 +66,21 @@ export default defineComponent({
             })
         }
 
-        return {...toRefs(data), addRole}
+        const changeRole = (row: ListInt) => {
+            router.push({
+                path: 'authority',
+                query: {
+                    id: row.roleId,
+                    authority: row.authority.join(',')
+                }
+                // name: 'authority',
+                // params: {
+                //     id: row.roleId
+                // }
+            })
+        }
+
+        return {...toRefs(data), addRole, changeRole}
     }
 })
 </script>

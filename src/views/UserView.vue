@@ -89,13 +89,13 @@ export default defineComponent({
         })
         const getUser = () => {
             getUserList().then(res => {
-                console.log(res);
+                // console.log(res);
                 data.list = res.data
             })
         }
         const getRole = () => {
             getRoleList().then(res => {
-                console.log(res);
+                // console.log(res);
                 data.roleList = res.data
             })
         }

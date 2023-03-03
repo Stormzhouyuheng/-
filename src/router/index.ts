@@ -33,6 +33,15 @@ const routes: Array<RouteRecordRaw> = [
           isShow: true,
           title: '角色列表'
         }
+      },
+      {
+        path: "authority",
+        name: "authority",
+        component: () => import(/* webpackChunkName: "authority" */ '../views/AuthorityView.vue'),
+        meta: {
+          isShow: false,
+          title: '权限列表'
+        }
       }
     ]
   },
