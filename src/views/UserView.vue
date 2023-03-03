@@ -118,7 +118,6 @@ export default defineComponent({
             data.list = arr
         }
         const changeUser = (row: ListInt) => {
-            console.log(row);
             data.active = {
                 id: row.id,
                 nickName: row.nickName,
