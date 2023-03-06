@@ -6,6 +6,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Home',
     component: Home,
+    redirect: 'goods', // 重定向到goods里面去
     children: [
       {
         path: "goods",
@@ -66,6 +67,16 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+// 路由守卫
+router.beforeEach((to, from, next) => {
+  const token: string | null = localStorage.getItem('token')
+  if(!token && to.path !== '/login') { // 如果没有token 或者本身就是要去往登录页面的 直接跳转到登录页面
+    next('/login')
+  }else {
+    next()
+  }
 })
 
 export default router

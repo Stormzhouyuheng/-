@@ -1,6 +1,9 @@
 # 说明
 本项目运用的是vue3+typescript技术
 
+账号：admin
+密码：123456
+
 ## 安装
 ```
 npm install

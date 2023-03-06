@@ -37,7 +37,8 @@ export default defineComponent({
         })
 
         const changeAuthority = () => {
-            console.log(data)
+            // 此处代码开始有问题（获取不到treeRef的dom元素）
+            console.log(data.treeRef.getCheckedKeys().sort(function(a: number, b:number) {return a - b}))
         }
 
         return {...toRefs(data), changeAuthority}
