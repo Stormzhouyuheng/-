@@ -3,8 +3,8 @@
     <el-container>
       <el-header>
         <el-row :gutter="20">
-          <el-col :span="4"
-            ><img src="../assets/zjwLogo.png" class="logo"
+          <el-col :span="4" class="col-btn"
+            ><img src="../assets/houtai.png" class="logo"
           /></el-col>
           <el-col :span="16"><h2>后台管理系统</h2></el-col>
           <el-col :span="4" class="col-btn"><el-button @click="detToken">退出登录</el-button></el-col>
@@ -65,7 +65,7 @@ export default defineComponent({
   height: 80px;
   background-color: #ccc;
   .logo {
-    height: 80px;
+    height: 20px;
   }
   h2,
   .quit-login {
